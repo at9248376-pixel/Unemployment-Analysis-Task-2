@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load Dataset
+df = pd.read_csv('Unemployment_Rate_upto_11_2020.csv')
+print(df.head())
+
+# Data Cleaning
+print(df.info())
+print(df.isnull().sum())
+
+# Visualization - Unemployment Rate
+plt.figure(figsize=(10,5))
+sns.histplot(df[' Estimated Unemployment Rate (%)'], kde=True)
+plt.title('Unemployment Rate Distribution')
+plt.show()
+
+# Region wise Analysis
+plt.figure(figsize=(8,5))
+sns.barplot(x='Region', y=' Estimated Unemployment Rate (%)', data=df)
+plt.title('Region Wise Unemployment')
+plt.show()
